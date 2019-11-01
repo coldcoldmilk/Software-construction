@@ -3,15 +3,15 @@ public class create_equation {
 	public int[][] create(){
 		int number1=0;
 		int number2=0;
-		int answer=0;
+//		int answer=0;
 		int symbol=0;
 		
 		while(true) {
 			symbol = (int)(Math.random()*2+43);
-			if(symbol==43) {//Ëæ»úÎª¼Ó·¨
+			if(symbol==43) {//éšæœºä¸ºåŠ æ³•
 				break;
 			}
-			else if(symbol==45){//Ëæ»úÎª¼õ·¨
+			else if(symbol==45){//éšæœºä¸ºå‡æ³•
 				break;
 			}
 		}
@@ -20,10 +20,10 @@ public class create_equation {
 			number1 =(int)(Math.random()*100);
 			number2 =(int)(Math.random()*100);
 			answer=number1+number2;
-			if((symbol==43)&&(answer<=100)) {//Îª¼Ó·¨ÇÒ½á¹û²»³¬¹ı100
+			if((symbol==43)) {//ä¸ºåŠ æ³•ä¸”ç»“æœä¸è¶…è¿‡100
 				break;
 			}
-			else if((symbol==45)&&(answer>0)) {//Îª¼õ·¨ÇÒ½á¹û´óÓÚ0
+			else if((symbol==45)) {//ä¸ºå‡æ³•ä¸”ç»“æœå¤§äº0
 				break;
 			}
 			
@@ -34,7 +34,7 @@ public class create_equation {
 		data[0][0]=number1;
 		data[0][1]=symbol;
 		data[0][2]=number2;
-		data[0][3]=answer;
+//		data[0][3]=answer;
 		
 		return data;
 		
