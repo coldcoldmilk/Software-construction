@@ -10,11 +10,11 @@ public class work {
 			data1[count1][0]=data2[0][0];
 			data1[count1][1]=data2[0][1];
 			data1[count1][2]=data2[0][2];
-			data1[count1][3]=data2[0][3];
+//			data1[count1][3]=data2[0][3];
 		}
 		
 		for(int count1=0;count1<50;count1++) {
-			System.out.println(data1[count1][0]+" "+(char)data1[count1][1]+" "+data1[count1][2]+" "+"="+data1[count1][3]+" ");
+			System.out.println(data1[count1][0]+" "+(char)data1[count1][1]+" "+data1[count1][2]+" "+"=");
 		}
 	}
 
