@@ -1,4 +1,3 @@
-
 public class work {
 
 	public static void main(String[] args) {
@@ -14,7 +13,11 @@ public class work {
 		}
 		
 		for(int count1=0;count1<50;count1++) {
-			System.out.println(data1[count1][0]+" "+(char)data1[count1][1]+" "+data1[count1][2]+" "+"="+data1[count1][3]+" ");
+			System.out.print(data1[count1][0]+" "+(char)data1[count1][1]+" "+data1[count1][2]+" "+"="+data1[count1][3]+" ");
+			System.out.print("  ");//算式间的空格
+			if(((count1+1)%4==0))//&&(count1!=0)
+				System.out.print("\n");
+			
 		}
 	}
 

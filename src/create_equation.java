@@ -1,4 +1,3 @@
-
 public class create_equation {
 	public int[][] create(){
 		int number1=0;
@@ -20,10 +19,10 @@ public class create_equation {
 			number1 =(int)(Math.random()*100);
 			number2 =(int)(Math.random()*100);
 			answer=number1+number2;
-			if((symbol==43)&&(answer<=100)) {//为加法且结果不超过100
+			if((symbol==43)&&(answer<=100)) {//为加法且结果不超过100 &&(answer<=100)
 				break;
 			}
-			else if((symbol==45)&&(answer>0)) {//为减法且结果大于0
+			else if((symbol==45)&&(answer>0)) {//为减法且结果大于0 &&(answer>0)
 				break;
 			}
 			
@@ -41,3 +40,4 @@ public class create_equation {
 	}
 	
 }
+
