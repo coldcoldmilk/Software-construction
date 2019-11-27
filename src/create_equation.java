@@ -37,6 +37,7 @@ public class create_equation {
 		data[0][3]=answer;
 		
 		return data;
+		//≤‚ ‘≤‚ ‘≤‚ ‘
 		
 	}
 	
