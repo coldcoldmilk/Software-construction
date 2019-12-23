@@ -1,11 +1,27 @@
 package Software_Construction;
 
+import java.util.Scanner;
+
 public class Method {
 		
 	public int Random_Number (int lower , int upper) {//随机数：lower<=Number<upper
 		int Number=0;
 		Number = (int)((Math.random()*(upper-lower+1))+lower);
 		return Number;		
+	}
+
+///////////////////////////////////////////////////////////////////////
+	//给习题输入答案
+///////////////////////////////////////////////////////////////////////
+	public void Answer_CSV_Book () {
+		Scanner sc=new Scanner(System.in);
+		int [][] f = new int [50][1];
+		for (int i = 0;i<50;i++) {
+			String str=null;
+			str=sc.nextLine();
+			int b = Integer.valueOf(str).intValue();
+			f[i][0]= b;
+		}
 	}
 	public void Display_head(String s){//显示表头。
 		System.out.println();

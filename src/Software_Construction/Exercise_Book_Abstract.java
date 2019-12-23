@@ -1,15 +1,15 @@
 package Software_Construction;
 
 public abstract class Exercise_Book_Abstract {
-	public int ExerciseNumber= 50; //默认题目数量
-	public int Exercise[][]=new int[ExerciseNumber][5];//题目数组
+	public static int ExerciseNumber= 50; //默认题目数量
+	public static int Exercise[][]=new int[ExerciseNumber][7];//题目数组
 	public int Symbols=0;
 	public int Display_Number = 4;
 	Method method = new Method();
 //输出随机题目指定数量 不指定数量默认50
 //输出减法题目指定数量
 //输出加法题目
-	public void Create_Random_Problems() {
+	public void Create_Random_Problems() {//重新输出后数组不变
 		for(int Number=0;Number<ExerciseNumber;Number++) {
 			int data[][] = new Arithmetic_class_Rondom().RandomCreate(method.Random_Symbols('+', '-'));
 			Exercise[Number][0]=Number+1;//题号
@@ -17,6 +17,8 @@ public abstract class Exercise_Book_Abstract {
 			Exercise[Number][2]=data[0][2];
 			Exercise[Number][3]=data[0][3];
 			Exercise[Number][4]=data[0][4];
+			Exercise[Number][5]=data[0][5];
+			Exercise[Number][6]=data[0][6];
 		}
 	}
 	
@@ -29,6 +31,8 @@ public abstract class Exercise_Book_Abstract {
 			Exercise[Number][2]=data[0][2];
 			Exercise[Number][3]=data[0][3];
 			Exercise[Number][4]=data[0][4];
+			Exercise[Number][5]=data[0][5];
+			Exercise[Number][6]=data[0][6];
 		}
 	}
 	
@@ -40,6 +44,8 @@ public abstract class Exercise_Book_Abstract {
 			Exercise[Number][2]=data[0][2];
 			Exercise[Number][3]=data[0][3];
 			Exercise[Number][4]=data[0][4];
+			Exercise[Number][5]=data[0][5];
+			Exercise[Number][6]=data[0][6];
 		}
 	}
 	
@@ -52,6 +58,8 @@ public abstract class Exercise_Book_Abstract {
 			Exercise[Number][2]=data[0][2];
 			Exercise[Number][3]=data[0][3];
 			Exercise[Number][4]=data[0][4];
+			Exercise[Number][5]=data[0][5];
+			Exercise[Number][6]=data[0][6];
 		}
 	}
 	
