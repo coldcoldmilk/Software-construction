@@ -1,3 +1,2 @@
 # Software-construction
 homework
-本次更新更新了以CSV包为核心的文件IO处理。计划下一步更新此项目的图形界面
