@@ -32,6 +32,14 @@ public class CsvIO_Method {
 		Name1= name;
 		return name;
 	}
+	public String Set_Name2 (String name) {
+		Name2= name;
+		return name;
+	}
+	public String Set_Name3 (String name) {
+		Name3= name;
+		return name;
+	}
 	public String Retuen_Name1() {
 		return Name1;
 	}

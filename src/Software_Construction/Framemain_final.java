@@ -11,7 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class Framemain_text extends JFrame{
+public class Framemain_final extends JFrame{
     
     private JFrame jFrame = new JFrame("");
     private Container c = jFrame.getContentPane();
@@ -43,18 +43,70 @@ public class Framemain_text extends JFrame{
     public void init() {
     //	creat.setBounds(10, 10);//按钮太少不足以为列
 		/////////////////////////////上方按钮部分////////////////////////////////
+    	c.add(creat);
+    	save.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//如果获取面板上的answer的text文本呢
+				
+			}
+
+
+			
+		});
+    	c.add(save);
+    	c.add(check);
+    	c.add(scanf);
+    	c.add(close);
+	//	JPanel fieldPanel = new JPanel();
+    	for (int i=1;i<=50;i++) {//刷新时删除所有东西，然后重新放进去
+    		JPanel fieldPanel = new JPanel();
+    		fieldPanel.setLayout(null);
+    		JLabel title = new JLabel(""+i);
+    		title.setBounds(0, 10, 20, 20);
+    		/////////////////////////////习题显示部分//////////////////////////////
+    		JLabel equation = new JLabel("算式"+i);//对题号设置新的字体，写按钮，写刷新
+    		equation.setBounds(25, 10, 50, 20);//算式
+    		JTextField answer  = new JTextField();
+    		answer.setBounds(90, 10, 20, 20);//答案
+    		JLabel RorF = new JLabel(" ");
+    		RorF.setBounds(120, 10, 20, 20);//对错
+    		JLabel right_answer = new JLabel("");
+    		right_answer.setBounds(150, 10, 20, 20);//正确答案
+    		fieldPanel.add(title);
+    		fieldPanel.add(equation);
+    		fieldPanel.add(answer);
+    		fieldPanel.add(RorF);
+    		fieldPanel.add(right_answer);
+    		c.add(fieldPanel);
+    	}
+    //	c.remove(fieldPanel);
+//    	for (int i=1;i<=50;i++) {//插入面板 面板内置；
+//    		c.add(new JLabel("习题"+i));
+//    	}
+    	jFrame.setVisible(true);
+    	jFrame.repaint();
 		creat.addActionListener(new ActionListener() {
 			
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {//为啥构造不能remove面板
 				// TODO Auto-generated method stub
 			//	jFrame.setVisible(false);
+				c.removeAll();
+		    	c.add(creat);
+		    	c.add(save);
+		    	c.add(check);
+		    	c.add(scanf);
+		    	c.add(close);
 				t = new Thread(new Runnable() {
 					int i;
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
+					
 						FrameConfirm_text f = new FrameConfirm_text();
 						csvIO f2 = new csvIO();
 						jFrame.setVisible(false);
@@ -133,10 +185,10 @@ public class Framemain_text extends JFrame{
 							
 							if(FrameConfirm_text.sign==1) {
 								//f.sign=0;
-								System.out.println("yes**"+FrameConfirm_text.sign);
+								//System.out.println("yes**"+FrameConfirm_text.sign);
 								break;
 							}
-							else
+							else//如果不强制要求输出，则不会执行，为什么呢草
 								System.out.println("no**"+FrameConfirm_text.sign);
 						}
 					}
@@ -146,54 +198,11 @@ public class Framemain_text extends JFrame{
 			}
 			
 		});
-    	c.add(creat);
-    	save.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-
-			
-		});
-    	c.add(save);
-    	c.add(check);
-    	c.add(scanf);
-    	c.add(close);
-//    	for (int i=1;i<=50;i++) {//刷新时删除所有东西，然后重新放进去
-//    		JPanel fieldPanel = new JPanel();
-//    		fieldPanel.setLayout(null);
-//    		JLabel title = new JLabel(""+i);
-//    		title.setBounds(0, 10, 20, 20);
-//    		/////////////////////////////习题显示部分//////////////////////////////
-//    		JLabel equation = new JLabel("算式"+i);//对题号设置新的字体，写按钮，写刷新
-//    		equation.setBounds(25, 10, 50, 20);//算式
-//    		JTextField answer  = new JTextField();
-//    		answer.setBounds(90, 10, 20, 20);//答案
-//    		JLabel RorF = new JLabel(" ");
-//    		RorF.setBounds(120, 10, 20, 20);//对错
-//    		JLabel right_answer = new JLabel("");
-//    		right_answer.setBounds(150, 10, 20, 20);//正确答案
-//    		fieldPanel.add(title);
-//    		fieldPanel.add(equation);
-//    		fieldPanel.add(answer);
-//    		fieldPanel.add(RorF);
-//    		fieldPanel.add(right_answer);
-//    		c.add(fieldPanel);
-//    	}
-    //	c.remove(fieldPanel);
-//    	for (int i=1;i<=50;i++) {//插入面板 面板内置；
-//    		c.add(new JLabel("习题"+i));
-//    	}
-    	jFrame.setVisible(true);
-    	jFrame.repaint();
     }
     //测试
     public static void main(String[] args) {
       //  new Framemain();
-    	Framemain_text f = new Framemain_text();
+    	Framemain_final f = new Framemain_final();
     	f.Framemain();
     }
 }
