@@ -73,10 +73,6 @@ public class Framemain_final extends JFrame{
     		fieldPanel.add(right_answer);
     		c.add(fieldPanel);
     	}
-    //	c.remove(fieldPanel);
-//    	for (int i=1;i<=50;i++) {//插入面板 面板内置；
-//    		c.add(new JLabel("习题"+i));
-//    	}
     	jFrame.setVisible(true);
     	jFrame.repaint();
 		creat.addActionListener(new ActionListener() {
@@ -85,7 +81,6 @@ public class Framemain_final extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {//为啥构造不能remove面板
 				// TODO Auto-generated method stub
-			//	jFrame.setVisible(false);
 				c.removeAll();
 		    	c.add(creat);
 		    	c.add(save);
@@ -96,12 +91,10 @@ public class Framemain_final extends JFrame{
 					int i;
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
-					
+						// TODO Auto-generated method stub					
 						FrameConfirm_text f = new FrameConfirm_text();
 						csvIO f2 = new csvIO();
-						jFrame.setVisible(false);
-				//		jFrame.dispose(); 	
+						jFrame.setVisible(false);	
 						try {
 							t2.join();
 							FrameConfirm_text.sign=0;
@@ -111,32 +104,17 @@ public class Framemain_final extends JFrame{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-				 //       jFrame1.setBounds(325, 40, 1100, 800);
-				        //设置一层相当于桌布的东西
-				//        c1.setLayout(new GridLayout(11,5,10,10));//布局管理器
-				        //设置按下右上角X号后关闭
-				  //      jFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				        //初始化--往窗体里放其他控件
+
 						JPanel asd = new JPanel();//删掉所有面板
 						c.remove(asd);//刷新问题
 				    	jFrame.repaint();
 						System.out.println(asd.getName()+"已全部删除");
-//						System.out.println("2");
-//						c.add(creat);
-//				    	c.add(save);
-//				    	c.add(check);//主框一个线程，每按一个按键启动另一个线程？
-//				    	c.add(scanf);//解决方案，设置50个面板 
-//				    	c.add(close);//使用多线程解决界面刷新问题
-//				    	System.out.println("3");//第一次点的时候没运行第二次才允许， 没关闭只是隐藏,list出了问题
-						
 
 				    	for (i=0;i<50;i++) {//刷新时删除所有东西，然后重新放进去
 				    		JPanel fieldPanel2 = new JPanel();
-				    	//	System.out.println("**"+i);
 				    		fieldPanel2.setLayout(null);
 				    		JLabel title2 = new JLabel(""+(i+1));
 				    		title2.setBounds(0, 10, 20, 20);
-				    //		System.out.println(lstFile.get(i)[1]);
 				    		/////////////////////////////习题显示部分//////////////////////////////
 				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]+"=");//对题号设置新的字体，写按钮，写刷新
 				    		equation2.setBounds(25, 10, 60, 20);//算式
@@ -153,8 +131,6 @@ public class Framemain_final extends JFrame{
 				    		fieldPanel2.add(right_answer2);
 				    		c.add(fieldPanel2);	    		
 				    	}
-			    	//	jFrame.dispose(); 	
-				    //	jFrame.setVisible(true);
 				    	while (true) {
 				    		if(i==50) {
 				    			jFrame.setVisible(true);
@@ -162,7 +138,6 @@ public class Framemain_final extends JFrame{
 				    			break;
 				    		}
 				    	}
-				    //	jFrame1.setVisible(true);
 					}
 					
 				});
@@ -207,20 +182,6 @@ public class Framemain_final extends JFrame{
 					
 						FrameConfirm_text f = new FrameConfirm_text();
 						jFrame.setVisible(false);
-				//		jFrame.dispose(); 	
-				 //       jFrame1.setBounds(325, 40, 1100, 800);
-				        //设置一层相当于桌布的东西
-				//        c1.setLayout(new GridLayout(11,5,10,10));//布局管理器
-				        //设置按下右上角X号后关闭
-				  //      jFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				        //初始化--往窗体里放其他控件
-//						System.out.println("2");
-//						c.add(creat);
-//				    	c.add(save);
-//				    	c.add(check);//主框一个线程，每按一个按键启动另一个线程？
-//				    	c.add(scanf);//解决方案，设置50个面板 
-//				    	c.add(close);//使用多线程解决界面刷新问题
-//				    	System.out.println("3");//第一次点的时候没运行第二次才允许， 没关闭只是隐藏,list出了问题
 				    	for (i=0;i<50;i++) {//刷新时删除所有东西，然后重新放进去
 				    	//	String [] date = new String[];
 				    		String[] data = lstFile.get(i);
@@ -282,7 +243,6 @@ public class Framemain_final extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {//为啥构造不能remove面板
 				// TODO Auto-generated method stub
-			//	jFrame.setVisible(false);
 				c.removeAll();
 		    	c.add(creat);
 		    	c.add(save);
@@ -308,12 +268,6 @@ public class Framemain_final extends JFrame{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-				 //       jFrame1.setBounds(325, 40, 1100, 800);
-				        //设置一层相当于桌布的东西
-				//        c1.setLayout(new GridLayout(11,5,10,10));//布局管理器
-				        //设置按下右上角X号后关闭
-				  //      jFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				        //初始化--往窗体里放其他控件
 				    	for (i=0;i<50;i++) {//刷新时删除所有东西，然后重新放进去
 				    	//	String [] date = new String[];
 				    		String[] data = lstFile.get(i);
@@ -333,15 +287,6 @@ public class Framemain_final extends JFrame{
 						c.remove(asd);//刷新问题
 				    	jFrame.repaint();
 						System.out.println(asd.getName()+"已全部删除");
-//						System.out.println("2");
-//						c.add(creat);
-//				    	c.add(save);
-//				    	c.add(check);//主框一个线程，每按一个按键启动另一个线程？
-//				    	c.add(scanf);//解决方案，设置50个面板 
-//				    	c.add(close);//使用多线程解决界面刷新问题
-//				    	System.out.println("3");//第一次点的时候没运行第二次才允许， 没关闭只是隐藏,list出了问题
-						
-
 				    	for (i=0;i<50;i++) {//刷新时删除所有东西，然后重新放进去
 				    		JPanel fieldPanel2 = new JPanel();
 				    	//	System.out.println("**"+i);
@@ -374,8 +319,6 @@ public class Framemain_final extends JFrame{
 				    		fieldPanel2.add(right_answer2);
 				    		c.add(fieldPanel2);	    		
 				    	}
-			    	//	jFrame.dispose(); 	
-				    //	jFrame.setVisible(true);
 				    	while (true) {
 				    		if(i==50) {
 				    			jFrame.setVisible(true);
@@ -398,8 +341,6 @@ public class Framemain_final extends JFrame{
 						while(true) {
 							
 							if(FrameConfirm_text.sign==1) {
-								//f.sign=0;
-								//System.out.println("yes**"+FrameConfirm_text.sign);
 								break;
 							}
 							else//如果不强制要求输出，则不会执行，为什么呢草
@@ -418,7 +359,6 @@ public class Framemain_final extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {//为啥构造不能remove面板
 				// TODO Auto-generated method stub
-			//	jFrame.setVisible(false);
 				c.removeAll();
 		    	c.add(creat);
 		    	c.add(save);
@@ -443,32 +383,15 @@ public class Framemain_final extends JFrame{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-				 //       jFrame1.setBounds(325, 40, 1100, 800);
-				        //设置一层相当于桌布的东西
-				//        c1.setLayout(new GridLayout(11,5,10,10));//布局管理器
-				        //设置按下右上角X号后关闭
-				  //      jFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				        //初始化--往窗体里放其他控件
 						JPanel asd = new JPanel();//删掉所有面板
 						c.remove(asd);//刷新问题
 				    	jFrame.repaint();
 						System.out.println(asd.getName()+"已全部删除");
-//						System.out.println("2");
-//						c.add(creat);
-//				    	c.add(save);
-//				    	c.add(check);//主框一个线程，每按一个按键启动另一个线程？
-//				    	c.add(scanf);//解决方案，设置50个面板 
-//				    	c.add(close);//使用多线程解决界面刷新问题
-//				    	System.out.println("3");//第一次点的时候没运行第二次才允许， 没关闭只是隐藏,list出了问题
-						
-
 				    	for (i=0;i<50;i++) {//刷新时删除所有东西，然后重新放进去
 				    		JPanel fieldPanel2 = new JPanel();
-				    	//	System.out.println("**"+i);
 				    		fieldPanel2.setLayout(null);
 				    		JLabel title2 = new JLabel(""+(i+1));
 				    		title2.setBounds(0, 10, 20, 20);
-				    //		System.out.println(lstFile.get(i)[1]);
 				    		/////////////////////////////习题显示部分//////////////////////////////
 				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]);//对题号设置新的字体，写按钮，写刷新
 				    		equation2.setBounds(25, 10, 60, 20);//算式
@@ -487,7 +410,6 @@ public class Framemain_final extends JFrame{
 				    		else {
 				    			RorF2.setText("");
 				    		}
-				    //		JLabel right_answer2 = new JLabel(lstFile.get(i)[4]);
 				    		right_answer2.setBounds(130, 10, 75, 20);//正确答案
 				    		fieldPanel2.add(title2);
 				    		fieldPanel2.add(equation2);
@@ -496,8 +418,7 @@ public class Framemain_final extends JFrame{
 				    		fieldPanel2.add(right_answer2);
 				    		c.add(fieldPanel2);	    		
 				    	}
-			    	//	jFrame.dispose(); 	
-				    //	jFrame.setVisible(true);
+
 				    	while (true) {
 				    		if(i==50) {
 				    			jFrame.setVisible(true);
@@ -505,7 +426,6 @@ public class Framemain_final extends JFrame{
 				    			break;
 				    		}
 				    	}
-				    //	jFrame1.setVisible(true);
 					}
 					
 				});
@@ -517,12 +437,10 @@ public class Framemain_final extends JFrame{
 						// TODO Auto-generated method stub
 						FrameConfirm_text f = new FrameConfirm_text();
 						f.scanf_JButton();
-					//	lstFile = f2.Reader_Book(CsvIO_Method.Name3);
+
 						while(true) {
 							
 							if(FrameConfirm_text.sign==1) {
-								//f.sign=0;
-								//System.out.println("yes**"+FrameConfirm_text.sign);
 								break;
 							}
 							else//如果不强制要求输出，则不会执行，为什么呢草
