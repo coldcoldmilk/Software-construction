@@ -24,7 +24,7 @@ public abstract class Arithmetic_class_abstract {
 			Left_Number = method.Random_Number(Left_Number_lower, Left_Number_upper);
 			Right_Number = method.Random_Number(Right_Number_lower,Right_Number_upper);
 			Right_Answer = method.Identify_Symbols_And_Calculate(Left_Number, Symbols, Right_Number);
-			if((Right_Answer>=answer_lower)&&(Right_Answer<=answer_upper)) {//为加法且结果不超过100 &&(answer<=100)
+			if((Right_Answer>answer_lower)&&(Right_Answer<=answer_upper)) {//为加法且结果不超过100 &&(answer<=100)
 				break;
 			}
 			

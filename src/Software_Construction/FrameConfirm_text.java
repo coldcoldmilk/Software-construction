@@ -14,7 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class FrameConfirm_text {
 /////////////////////////批量产生习题文件///////////////////////////////////
@@ -191,8 +194,8 @@ public void Save_JButton() {
 		//////////////////////////////////////////////////////////////
 		JPanel titlePanel = new JPanel();
 		titlePanel.setLayout(new FlowLayout());
-		JLabel text1 = new JLabel("已保存当前答案在"+CsvIO_Method.Name2+"practice.csv");
-		text1.setFont(new Font("微软雅黑",Font.BOLD, 13));
+		JLabel text1 = new JLabel("已保存当前答案在"+CsvIO_Method.Name3+".csv");
+		text1.setFont(new Font("微软雅黑",Font.BOLD, 11));
 		titlePanel.add(text1);
 		c.add(titlePanel);
 		JPanel titlePanel2 = new JPanel();
@@ -205,6 +208,7 @@ public void Save_JButton() {
 		// TODO Auto-generated method stub
 			csvIO f = new csvIO();
 			f.Creat_CSV_practice(Framemain_final.lstFile);
+			f.Creat_CSV_check(Framemain_final.lstFile);
 			jFrame.setVisible(false);
 			System.out.println("已完成练习文件的保存");
 			FrameConfirm_text.sign=1;
@@ -217,7 +221,7 @@ public void Save_JButton() {
 		//设置窗体可见
 		jFrame.setVisible(true);
 	}
-/////////////////////////保存当前习题文件生成习题文件///////////////////////////////////
+/////////////////////////保存当前习题文件生成批改文件///////////////////////////////////
 /**
 * check_JButton()方法。批改当前习题的答案
 * 输入：无
@@ -237,8 +241,8 @@ public void check_JButton() {
 		//////////////////////////////////////////////////////////////
 		JPanel titlePanel = new JPanel();
 		titlePanel.setLayout(new FlowLayout());
-		JLabel text1 = new JLabel("批改文件在"+CsvIO_Method.Name2+"check.csv");
-		text1.setFont(new Font("微软雅黑",Font.BOLD, 13));
+		JLabel text1 = new JLabel("批改文件在"+CsvIO_Method.Name3+".csv");
+		text1.setFont(new Font("微软雅黑",Font.BOLD, 11));
 		titlePanel.add(text1);
 		c.add(titlePanel);
 		JPanel titlePanel2 = new JPanel();
@@ -251,6 +255,7 @@ public void check_JButton() {
 		// TODO Auto-generated method stub
 		csvIO f = new csvIO();
 		f.Creat_CSV_check(Framemain_final.lstFile);
+		f.Creat_CSV_practice(Framemain_final.lstFile);
 		jFrame.setVisible(false);
 		System.out.println("已完成练习文件的保存");
 		FrameConfirm_text.sign=1;
@@ -265,7 +270,7 @@ public void check_JButton() {
 	}
 /////////////////////////导入文件///////////////////////////////////
 /**
-* check_JButton()方法。输入套题名称，读取此套题
+* scanf_JButton()方法。输入套题名称，读取此套题
 * 输入：无
 * 输出：无
 * 
@@ -274,7 +279,7 @@ public void scanf_JButton() {
 		JFrame jFrame = new JFrame("导入文件");
 		Container c = jFrame.getContentPane();
 		//设置窗体的位置及大小
-		jFrame.setBounds(600, 200, 300, 200);
+		jFrame.setBounds(600, 200, 300, 600);
 		//设置一层相当于桌布的东西
 		c.setLayout(new GridLayout(4,1,10,10));//布局管理器
 		//设置按下右上角X号后关闭
@@ -287,6 +292,19 @@ public void scanf_JButton() {
 		text1.setFont(new Font("微软雅黑",Font.BOLD, 20));
 		titlePanel.add(text1);
 		c.add(titlePanel);
+		/////////////////////////////////////////////////////////////////
+//		JPanel titlePanel3 = new JPanel();
+//		titlePanel3.setBorder(new EmptyBorder(5,5,5,5));
+//		titlePanel3.setLayout(new BorderLayout(0,0));
+//		//JScrollPane scrollPane = new JScrollPane();
+//	//	titlePanel3.add(scrollPane,BorderLayout.CENTER);
+//		String[] columnNames = {"文件名称"};
+//		//ArrayList<String> tableValues = Framemain_final.address;
+//		 String [][] rowData = new String[Framemain_final.address.size()][];
+//		 JTable table = new JTable (rowData,columnNames);
+//		titlePanel3.add(table);
+//		c.add(titlePanel3);
+		////////////////////////////////////////////////////////////////
 		JTextField name = new JTextField();
 		c.add(name);
 		JPanel titlePanel2 = new JPanel();
@@ -298,8 +316,10 @@ public void scanf_JButton() {
 		public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 			csvIO f2 = new csvIO();
+			CsvIO_Method f3 = new CsvIO_Method();//设置三级姓名
 		//	Framemain_final.lstFile=f.Reader_Book(name.getText());传送文件问题，读入的list 和 主界面的list 无法连接
 			Framemain_final.lstFile = f2.Reader_Book(name.getText());
+			f3.Set_Name3(name.getText());
 			System.out.println("已完成文件的导入");
 		//	jFrame.dispose();
 		jFrame.setVisible(false);

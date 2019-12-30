@@ -15,16 +15,14 @@ public class Framemain_final extends JFrame{
     
     private JFrame jFrame = new JFrame("小学生数学练习册");
     private Container c = jFrame.getContentPane();
-    private JFrame jFrame1 = new JFrame("");
-    private Container c1 = jFrame1.getContentPane();
     private static JButton creat = new JButton("批量产生习题");
     private static JButton save = new JButton("保存当前答案");
     private static JButton check = new JButton("批改当前习题");
     private static JButton scanf = new JButton("导入习题");
     private static JButton close = new JButton("关闭");
     public static ArrayList<String[]> lstFile = new ArrayList<String[]>();
+    public static ArrayList<String[]> address = new ArrayList<String[]>();
     private static Thread t;
-    private static Thread tmain;
     private static Thread t2;
     public static JPanel asd = new JPanel();
     public JTextField[] answer  = new JTextField[50];
@@ -59,15 +57,15 @@ public class Framemain_final extends JFrame{
     		JLabel title = new JLabel(""+i);
     		title.setBounds(0, 10, 20, 20);
     		/////////////////////////////习题显示部分//////////////////////////////
-    		JLabel equation = new JLabel("算式"+i);//对题号设置新的字体，写按钮，写刷新
-    		equation.setBounds(25, 10, 50, 20);//算式
+    		JLabel equation = new JLabel("算式"+i+"=");//对题号设置新的字体，写按钮，写刷新
+    		equation.setBounds(25, 10, 60, 20);//算式
     		JTextField answer  = new JTextField();
-    		answer.setBounds(90, 10, 25, 20);//答案
-    		JLabel RorF = new JLabel(" ");
-    		RorF.setBounds(120, 10, 20, 20);//对错
-    		JLabel right_answer = new JLabel("正确答案");
+    		answer.setBounds(85, 10, 25, 20);//答案
+    		JLabel RorF = new JLabel("×");
+    		RorF.setBounds(115, 10, 10, 20);//对错
+    		JLabel right_answer = new JLabel("正确答案100");
     		right_answer.setFont(new Font("微软雅黑",Font.BOLD,10));
-    		right_answer.setBounds(150, 10, 45, 20);//正确答案
+    		right_answer.setBounds(130, 10, 75, 20);//正确答案
     		fieldPanel.add(title);
     		fieldPanel.add(equation);
     		fieldPanel.add(answer);
@@ -140,14 +138,14 @@ public class Framemain_final extends JFrame{
 				    		title2.setBounds(0, 10, 20, 20);
 				    //		System.out.println(lstFile.get(i)[1]);
 				    		/////////////////////////////习题显示部分//////////////////////////////
-				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]);//对题号设置新的字体，写按钮，写刷新
-				    		equation2.setBounds(25, 10, 55, 20);//算式
+				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]+"=");//对题号设置新的字体，写按钮，写刷新
+				    		equation2.setBounds(25, 10, 60, 20);//算式
 				    		
-				    		answer[i].setBounds(90, 10, 25, 20);//答案
+				    		answer[i].setBounds(85, 10, 25, 20);//答案
 				    		JLabel RorF2 = new JLabel(" ");
-				    		RorF2.setBounds(120, 10, 20, 20);//对错
+				    		RorF2.setBounds(115, 10, 15, 20);//对错
 				    		JLabel right_answer2 = new JLabel(" ");
-				    		right_answer2.setBounds(150, 10, 25, 20);//正确答案
+				    		right_answer2.setBounds(130, 10, 75, 20);//正确答案
 				    		fieldPanel2.add(title2);
 				    		fieldPanel2.add(equation2);
 				    		fieldPanel2.add(answer[i]);
@@ -323,6 +321,9 @@ public class Framemain_final extends JFrame{
 				    		if(data[2].equals(data[4])) {
 				    			data[3]="√";
 				    		}
+				    		else if(data[2].equals("")){
+				    			data[3]="0";
+				    		}
 				    		else {
 				    			data[3]="×";
 				    		}
@@ -349,14 +350,23 @@ public class Framemain_final extends JFrame{
 				    		title2.setBounds(0, 10, 20, 20);
 				    //		System.out.println(lstFile.get(i)[1]);
 				    		/////////////////////////////习题显示部分//////////////////////////////
-				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]);//对题号设置新的字体，写按钮，写刷新
-				    		equation2.setBounds(25, 10, 55, 20);//算式
+				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]+"=");//对题号设置新的字体，写按钮，写刷新
+				    		equation2.setBounds(25, 10, 60, 20);//算式
 				    		
-				    		answer[i].setBounds(90, 10, 25, 20);//答案
+				    		answer[i].setBounds(85, 10, 25, 20);//答案
 				    		JLabel RorF2 = new JLabel(lstFile.get(i)[3]);//对错无法正常显示
-				    		RorF2.setBounds(120, 10, 30, 20);//对错
-				    		JLabel right_answer2 = new JLabel(lstFile.get(i)[4]);
-				    		right_answer2.setBounds(150, 10, 25, 20);//正确答案
+				    		RorF2.setBounds(115, 10, 15, 20);//对错
+				    		JLabel right_answer2 = new JLabel(" ");
+				    		if(lstFile.get(i)[3].equals("√")) {
+				    			right_answer2.setText("正确答案"+lstFile.get(i)[4]);
+				    		}
+				    		else if((lstFile.get(i)[3].equals("×"))){
+				    			right_answer2.setText("正确答案"+lstFile.get(i)[4]);
+				    		}
+				    		else {
+				    			RorF2.setText("");
+				    		}
+				    		right_answer2.setBounds(130, 10, 75, 20);//正确答案
 				    		fieldPanel2.add(title2);
 				    		fieldPanel2.add(equation2);
 				    		fieldPanel2.add(answer[i]);
@@ -461,14 +471,24 @@ public class Framemain_final extends JFrame{
 				    //		System.out.println(lstFile.get(i)[1]);
 				    		/////////////////////////////习题显示部分//////////////////////////////
 				    		JLabel equation2 = new JLabel(lstFile.get(i)[1]);//对题号设置新的字体，写按钮，写刷新
-				    		equation2.setBounds(25, 10, 55, 20);//算式
+				    		equation2.setBounds(25, 10, 60, 20);//算式
 				    		
-				    		answer[i].setBounds(90, 10, 25, 20);//答案
+				    		answer[i].setBounds(85, 10, 25, 20);//答案
 				    		answer[i].setText(lstFile.get(i)[2]);
 				    		JLabel RorF2 = new JLabel(lstFile.get(i)[3]);
-				    		RorF2.setBounds(120, 10, 20, 20);//对错
-				    		JLabel right_answer2 = new JLabel(lstFile.get(i)[4]);
-				    		right_answer2.setBounds(150, 10, 25, 20);//正确答案
+				    		RorF2.setBounds(115, 10, 15, 20);//对错
+			    			JLabel right_answer2 = new JLabel();
+				    		if(lstFile.get(i)[3].equals("√")) {
+				    			right_answer2.setText("正确答案"+lstFile.get(i)[4]);
+				    		}
+				    		else if((lstFile.get(i)[3].equals("×"))){
+				    			right_answer2.setText("正确答案"+lstFile.get(i)[4]);
+				    		}
+				    		else {
+				    			RorF2.setText("");
+				    		}
+				    //		JLabel right_answer2 = new JLabel(lstFile.get(i)[4]);
+				    		right_answer2.setBounds(130, 10, 75, 20);//正确答案
 				    		fieldPanel2.add(title2);
 				    		fieldPanel2.add(equation2);
 				    		fieldPanel2.add(answer[i]);

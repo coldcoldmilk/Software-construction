@@ -19,6 +19,8 @@ public class csvIO {
 		//cvs文件写入部分
 		String pathCSVWrite = "d:\\";
 		String pathCSVWriter = pathCSVWrite+csvname+"_"+"exercise"+".csv";
+		String [] address = {csvname+"_"+"exercise"+".csv"};//字符串数组 TABLE能用哪个？
+		Framemain_final.address.add(address);
 		ArrayList<String[]> lstFile = new ArrayList<String[]>();
 		
 		for (int count=0;count<data.length;count++) {
@@ -56,7 +58,8 @@ public class csvIO {
 		
 		String pathCSVWrite = "d:\\";
 		String pathCSVWriter = pathCSVWrite+f.Retuen_Name2()+"practice"+".csv";
-		
+		String []address = {f.Retuen_Name2()+"practice"+".csv"};//字符串数组 TABLE能用哪个？
+		Framemain_final.address.add(address);
 		try{
 			CsvWriter csvWriter = new CsvWriter(pathCSVWriter,',',Charset.forName("gb2312"));
 			// 写表头
@@ -87,7 +90,7 @@ public class csvIO {
 		
 		String pathCSVWrite = "d:\\";
 		String pathCSVWriter = pathCSVWrite+f.Retuen_Name2()+"check"+".csv";
-		
+		String address = f.Retuen_Name2()+"check"+".csv";//字符串数组 TABLE能用哪个？
 		try{
 			CsvWriter csvWriter = new CsvWriter(pathCSVWriter,',',Charset.forName("gb2312"));
 			// 写表头
