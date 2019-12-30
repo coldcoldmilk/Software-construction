@@ -51,11 +51,11 @@ public class csvIO {
 	 * 输出：无
 	 * 
 	 * */
-	public void Creat_CSV_exercise (ArrayList<String[]> lstFile) {//生成练习文件
+	public void Creat_CSV_practice (ArrayList<String[]> lstFile) {//生成练习文件
 		CsvIO_Method f = new CsvIO_Method();
 		
 		String pathCSVWrite = "d:\\";
-		String pathCSVWriter = pathCSVWrite+f.Retuen_Name2()+"exercise"+".csv";
+		String pathCSVWriter = pathCSVWrite+f.Retuen_Name2()+"practice"+".csv";
 		
 		try{
 			CsvWriter csvWriter = new CsvWriter(pathCSVWriter,',',Charset.forName("gb2312"));
@@ -97,6 +97,14 @@ public class csvIO {
 			 // 写内容
 			for(int i=0;i<lstFile.size();i++){
 				String[] csvContent = lstFile.get(i);
+				if(csvContent[2].equals(csvContent[4])) {
+					csvContent[3]="√";
+				}
+				else {
+					csvContent[3]="×";
+				}
+				Framemain_final.lstFile.set(i, csvContent);
+				System.out.println(csvContent[3]);
 				csvWriter.writeRecord(csvContent);
 			}
 			csvWriter.close();
@@ -133,7 +141,8 @@ public class csvIO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("--------------------已完成套题信息读取操作--------------");
+		FrameConfirm_text.sign=1;
+		System.out.println("--------------------已完成文件信息读取操作--------------");
 		return lstFile;
 	}
 	public static void main(String[] args) {

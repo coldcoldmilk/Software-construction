@@ -100,11 +100,9 @@ public class FrameConfirm_text {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				CsvIO_Method f = new CsvIO_Method();
-				Framemain_text F = new Framemain_text();
 				f.Return_Name_operation(f.Retuen_Name1(), "Add");//统一的姓名格式
 				f.Return_Name_type(f.Retuen_Name2(), "exercise");
 				csvIO csvio = new csvIO();//将导入的list传入主界面
-				F.lstFile = (ArrayList<String[]>) csvio.Reader_Book(f.Retuen_Name3()).clone();//list能直接相等嘛？
 			//	System.out.println(F.lstFile.get(0)[1]);
 				System.out.println("已完成加法套题的读取");//设置一个循环让程序不停下来
 				
@@ -122,11 +120,9 @@ public class FrameConfirm_text {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				CsvIO_Method f = new CsvIO_Method();
-				Framemain_text F = new Framemain_text();
 				f.Return_Name_operation(f.Retuen_Name1(), "Subtraction");//统一的姓名格式
 				f.Return_Name_type(f.Retuen_Name2(), "exercise");
 				csvIO csvio = new csvIO();//将导入的list传入主界面
-				F.lstFile = (ArrayList<String[]>) csvio.Reader_Book(f.Retuen_Name3()).clone();//list能直接相等嘛？
 				System.out.println("已完成减法套题的读取");
 				sign=1;
 				jFrame.setVisible(false);
@@ -141,11 +137,9 @@ public class FrameConfirm_text {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				CsvIO_Method f = new CsvIO_Method();
-				Framemain_text F = new Framemain_text();
 				f.Return_Name_operation(f.Retuen_Name1(), "Rondom");//统一的姓名格式
 				f.Return_Name_type(f.Retuen_Name2(), "exercise");
 				csvIO csvio = new csvIO();//将导入的list传入主界面
-				F.lstFile = (ArrayList<String[]>) csvio.Reader_Book(f.Retuen_Name3()).clone();//list能直接相等嘛？
 				System.out.println("已完成减法套题的读取");
 				sign=1;
 				jFrame.setVisible(false);
@@ -177,5 +171,187 @@ public class FrameConfirm_text {
         jFrame.setVisible(true);
     }
     
-
+/////////////////////////保存当前习题文件生成习题文件///////////////////////////////////
+/**
+* Save_JButton()方法。保存当前习题的答案进入对应的文件
+* 输入：无
+* 输出：无
+* 
+* */ 
+public void Save_JButton() {
+		JFrame jFrame = new JFrame("保存当前答案");
+		Container c = jFrame.getContentPane();
+		//设置窗体的位置及大小
+		jFrame.setBounds(600, 200, 300, 200);
+		//设置一层相当于桌布的东西
+		c.setLayout(new GridLayout(4,1,10,10));//布局管理器
+		//设置按下右上角X号后关闭
+		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//初始化--往窗体里放其他控件
+		//////////////////////////////////////////////////////////////
+		JPanel titlePanel = new JPanel();
+		titlePanel.setLayout(new FlowLayout());
+		JLabel text1 = new JLabel("已保存当前答案在"+CsvIO_Method.Name2+"practice.csv");
+		text1.setFont(new Font("微软雅黑",Font.BOLD, 13));
+		titlePanel.add(text1);
+		c.add(titlePanel);
+		JPanel titlePanel2 = new JPanel();
+		titlePanel2.setLayout(new FlowLayout());
+		JButton okbtn = new JButton("确定");
+		okbtn.addActionListener(new ActionListener() {//按下确定
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+			csvIO f = new csvIO();
+			f.Creat_CSV_practice(Framemain_final.lstFile);
+			jFrame.setVisible(false);
+			System.out.println("已完成练习文件的保存");
+			FrameConfirm_text.sign=1;
+		}
+		
+		});
+		titlePanel2.add(okbtn);
+		c.add(titlePanel2);
+		//////////////////////////////////////////////////////////////
+		//设置窗体可见
+		jFrame.setVisible(true);
+	}
+/////////////////////////保存当前习题文件生成习题文件///////////////////////////////////
+/**
+* check_JButton()方法。批改当前习题的答案
+* 输入：无
+* 输出：无
+* 
+* */ 
+public void check_JButton() {
+		JFrame jFrame = new JFrame("批改当前答案");
+		Container c = jFrame.getContentPane();
+		//设置窗体的位置及大小
+		jFrame.setBounds(600, 200, 300, 200);
+		//设置一层相当于桌布的东西
+		c.setLayout(new GridLayout(4,1,10,10));//布局管理器
+		//设置按下右上角X号后关闭
+		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//初始化--往窗体里放其他控件
+		//////////////////////////////////////////////////////////////
+		JPanel titlePanel = new JPanel();
+		titlePanel.setLayout(new FlowLayout());
+		JLabel text1 = new JLabel("批改文件在"+CsvIO_Method.Name2+"check.csv");
+		text1.setFont(new Font("微软雅黑",Font.BOLD, 13));
+		titlePanel.add(text1);
+		c.add(titlePanel);
+		JPanel titlePanel2 = new JPanel();
+		titlePanel2.setLayout(new FlowLayout());
+		JButton okbtn = new JButton("确定");
+		okbtn.addActionListener(new ActionListener() {//按下确定
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		csvIO f = new csvIO();
+		f.Creat_CSV_check(Framemain_final.lstFile);
+		jFrame.setVisible(false);
+		System.out.println("已完成练习文件的保存");
+		FrameConfirm_text.sign=1;
+		}
+		
+		});
+		titlePanel2.add(okbtn);
+		c.add(titlePanel2);
+		//////////////////////////////////////////////////////////////
+		//设置窗体可见
+		jFrame.setVisible(true);
+	}
+/////////////////////////导入文件///////////////////////////////////
+/**
+* check_JButton()方法。输入套题名称，读取此套题
+* 输入：无
+* 输出：无
+* 
+* */ 
+public void scanf_JButton() {
+		JFrame jFrame = new JFrame("导入文件");
+		Container c = jFrame.getContentPane();
+		//设置窗体的位置及大小
+		jFrame.setBounds(600, 200, 300, 200);
+		//设置一层相当于桌布的东西
+		c.setLayout(new GridLayout(4,1,10,10));//布局管理器
+		//设置按下右上角X号后关闭
+		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//初始化--往窗体里放其他控件
+		//////////////////////////////////////////////////////////////
+		JPanel titlePanel = new JPanel();
+		titlePanel.setLayout(new FlowLayout());
+		JLabel text1 = new JLabel("请输入套题名称");
+		text1.setFont(new Font("微软雅黑",Font.BOLD, 20));
+		titlePanel.add(text1);
+		c.add(titlePanel);
+		JTextField name = new JTextField();
+		c.add(name);
+		JPanel titlePanel2 = new JPanel();
+		titlePanel2.setLayout(new FlowLayout());
+		JButton okbtn = new JButton("确定");
+		okbtn.addActionListener(new ActionListener() {//按下确定
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+			csvIO f2 = new csvIO();
+		//	Framemain_final.lstFile=f.Reader_Book(name.getText());传送文件问题，读入的list 和 主界面的list 无法连接
+			Framemain_final.lstFile = f2.Reader_Book(name.getText());
+			System.out.println("已完成文件的导入");
+		//	jFrame.dispose();
+		jFrame.setVisible(false);
+		}
+		
+		});
+		titlePanel2.add(okbtn);
+		c.add(titlePanel2);
+		//////////////////////////////////////////////////////////////
+		//设置窗体可见
+		jFrame.setVisible(true);
+	}
+/////////////////////////关闭主窗口///////////////////////////////////
+/**
+* close_JButton()方法。关闭主窗口结束咯
+* 输入：无
+* 输出：无
+* 
+* */ 
+public void close_JButton() {
+		JFrame jFrame = new JFrame("");
+		Container c = jFrame.getContentPane();
+		//设置窗体的位置及大小
+		jFrame.setBounds(600, 200, 300, 200);
+		//设置一层相当于桌布的东西
+		c.setLayout(new GridLayout(4,1,10,10));//布局管理器
+		//设置按下右上角X号后关闭
+		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//初始化--往窗体里放其他控件
+		//////////////////////////////////////////////////////////////
+		JPanel titlePanel = new JPanel();
+		titlePanel.setLayout(new FlowLayout());
+		JLabel text1 = new JLabel("好好学习！天天向上！");
+		text1.setFont(new Font("微软雅黑",Font.BOLD, 13));
+		titlePanel.add(text1);
+		c.add(titlePanel);
+		JPanel titlePanel2 = new JPanel();
+		titlePanel2.setLayout(new FlowLayout());
+		JButton okbtn = new JButton("确定");
+		okbtn.addActionListener(new ActionListener() {//按下确定
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		jFrame.setVisible(false);
+		}
+		
+		});
+		titlePanel2.add(okbtn);
+		c.add(titlePanel2);
+		//////////////////////////////////////////////////////////////
+		//设置窗体可见
+		jFrame.setVisible(true);
+	}
 }
